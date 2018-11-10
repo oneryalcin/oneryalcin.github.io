@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Udacity Neighbourhood Map - Boris Bike Stations</title>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+
+        <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>London Train/Bike Stations</h3>
+            </div>
+                <!-- Filter input for traion stations -->
+                <form data-bind="submit: filterStations">
+                    <div class="input-group">
+                        <input type="text" class="form-control ml-2" placeholder="Station Name" aria-label="Station Name" aria-describedby="button-addon2"
+                            data-bind="value: filterQuery">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-light button-custom mr-2" type="submit" id="button-addon2">Filter</button>
+                        </div>
+                    </div>
+                </form>
+            <ul class="list-unstyled components" data-bind="foreach: visibleStations, visible: visibleStations().length > 0">
+                <li data-bind="text: title, click: highlightStation"></li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="align-items-start">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <!-- Hamburger button to hide sidebar  -->
+                    <button type="button" id="sidebarCollapse" class="btn btn-light">
+                        <i class="fas fa-bars"></i>
+                        <span></span>
+                    </button>
+                    <!-- Filter input for train stations, however this only appears when sidebar is hodden -->
+                    <form data-bind="submit: filterStations" class="d-none" id="navbar-form">
+                        <div class="input-group">
+                            <input type="text" class="form-control ml-2" placeholder="Station Name" aria-label="Station Name" aria-describedby="button-addon" data-bind="value: filterQuery" style="width: 140px;">
+                            <div class="input-group-append">
+                                <button class="btn btn-info mr-2" type="submit" id="button-addon">Filter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+            <!-- Google Maps  -->
+            <div id="map"></div>
+            <div class="text-center mt-3">
+                <p style="font-size:0.9rem">TFL station data is provided by <a href="http://marquisdegeek.com/api/tube/">Marquis de Geek</a> and Bike Station data is provided by <a href="https://api.tfl.gov.uk/bikepoint">TFL</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+    <!-- knockoutjs  -->
+    <script src="https://knockoutjs.com/downloads/knockout-3.4.2.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1y7wE46IcoO3p16A_Z3xaqZhE4NrSS_w&v=3&callback=initMap"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

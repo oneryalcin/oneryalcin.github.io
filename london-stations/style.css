@@ -1,0 +1,105 @@
+
+/* @import "https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:300,400,500,600,700"; */
+body {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Abel', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); */
+}
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #6bb9f0;
+    color: #fff;
+    transition: all 0.3s;
+    overflow: scroll;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+/* London Train Stations section*/
+#sidebar .sidebar-header {
+    padding: 20px;
+    /* background: #6d7fcc; */
+    background: #6bb9f0;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li {
+    padding: 10px;
+    font-size: 0.9em;
+    display: block;
+}
+
+#sidebar ul li:hover {
+    color: #6bb9f0;
+    background: #fff;
+}
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    background: #6bb9f0;
+    color: white;
+}
+
+#map {
+  height: 80vh;
+  position: fixed;
+}
+
+/* ---------------------------------------------------
+    INFOBOX STYLE
+----------------------------------------------------- */
+.infobox {
+    font: 0.5rem "Encode Sans Condensed", sans-serif;
+}
